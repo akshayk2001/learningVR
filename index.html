@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registry - A-Frame School</title>
+    <meta name="description" content="Registry - A-Frame School">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  </head>
+  <body>
+<!-- Add orbiting colored light spheres  -->
+    <a-scene>
+      <a-assets>
+        <img id="groundTexture" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png">
+        <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+      </a-assets>
+      <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+      <a-entity particle-system="preset: ; particleCount: 10000"></a-entity>
+      <a-entity camera look-controls wasd-controls position="0 0.1 25"></a-entity>
+      <a-entity id="box" geometry="primitive: box; width: 10; depth: 10; height: 10" position="0 0 0" material="color: #4CC3D9" particle-system="preset: dust; color: #EF0000, #0000FF, #44CC00; maxAge: 0.1; positionSpread: 100 0 100; particleCount: 10000; size: 0.5"></a-entity>
+      <a-entity id="sphere" geometry="primitive: sphere; radius: 5" material="color: #EF2D5E" position="-30 1.25 -10" animation="property: scale; dir: alternate; dur: 100; to: 1 1 1; loop: true"></a-entity>
+      <a-entity id="cylinder" geometry="primitive: cylinder; radius: 3; height: 100" position="30 0.75 -3" material="color: #FFC65D"></a-entity>
+      
+      <a-entity id="plane" geometry="primitive: plane; width: 10000; height: 10000" material="color: #333; src: #groundTexture; repeat: 10000 10000; transparent: true; metalness: 0.6; roughness: 0.4" rotation="-90 0 0"></a-entity>
+      <a-entity id="sky" geometry="primitive: sphere; radius: 100" material="color: #666; shader: flat; side: back; src: #skyTexture"></a-entity>
+      <a-entity light="type: ambient; color: #444"></a-entity>
+      <a-entity light="type: directional; color: #AAA" position="-1 2 0"></a-entity>
+    </a-scene>
+  </body>
+</html>
